@@ -1,0 +1,61 @@
+<?xml version = "1.0"?>
+<project name= "ArrayInit Language Project" default="info" basedir="/home/ubuntu/ArrayInit">
+
+<componentdef classname="org.dogsplayingpoker.ant.PropertyHelpers.ColorPropertyEvaluator"
+              name="colorpropertyevaluator"
+              classpath="/usr/local/lib/ant-colorizor.jar" />
+<propertyhelper>
+  <colorpropertyevaluator />
+</propertyhelper>
+
+
+	
+	<target name="info">
+
+		<echo>This ant script builds the ArrayInit.</echo>
+
+	</target>
+
+	<target name="usage">
+
+		<echo>${color: blue, bold}ant build-grammar: Consumes the g4 and builds .java files to parse the grammar${color:reset}</echo>
+		<echo>${color: purple, bold}ant compile-java: Compiles .java files${color:reset}</echo>
+		<echo>${color: red, bold}ant clean: Cleans and deletes all files/build directories${color:reset}</echo>
+
+	</target>
+	
+	<target name="build-grammar" depends="clean">
+		<echo>Generating the .java files</echo>
+		
+		<java classname="org.antlr.v4.Tool">	
+			<arg value="-o" />
+			<arg value="build/src" />	
+			<arg value="ArrayInit.g4" />
+
+			<classpath>
+				<pathelement location="/usr/local/lib/antlr-4.7.2-complete.jar" />
+			</classpath>
+
+		</java>
+
+	</target>
+
+	<target name="compile-java">
+		<echo>Compiling the .java source files</echo>
+		<javac includeantruntime="false" classpath="/usr/local/lib/antlr-4.7.2-complete.jar" srcdir="./build/src" destdir="./build/bin" />
+	</target>
+
+	<target name="clean">
+		<echo>Cleaning the project directories</echo>
+	<delete>
+		<fileset dir="." includes="**.*~"/>
+		<fileset dir="." includes="**/*.class"/>
+		<fileset dir="." includes="**/*.java"/>
+		<fileset dir="." includes="**/*.interp"/>
+		<fileset dir="." includes="**/*.tokens"/>
+	</delete>
+
+	</target>
+
+
+</project>
