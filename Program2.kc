@@ -1,0 +1,14 @@
+PROGRAM Program2
+
+DECLARE
+	INTEGER x
+
+BEGIN
+	PRINT "Enter a number: "
+	READ x
+	WHILE x > 0 DO
+		PRINT x
+		SET x:= x - 1
+	ENDWHILE
+
+END
