@@ -90,7 +90,7 @@ decision
     ;
 
 loop
-    : 'WHILE" comp expr 'DO' stat+ 'ENDWHILE'
+    : 'WHILE' comp expr 'DO' stat+ 'ENDWHILE'
     ;
 
 /* ----- LEXER RULES ----- */
@@ -146,4 +146,3 @@ EQ
 NEQ
     : '<>'
     ;
-
