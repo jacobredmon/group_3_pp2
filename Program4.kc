@@ -1,0 +1,18 @@
+PROGRAM Program4
+
+DECLARE
+	STRING name;
+	INTEGER reps;
+
+BEGIN
+	PRINT "Enter your name: "
+	READ name
+	PRINT "Enter repetitions: "
+	READ reps
+	WHILE reps > 0 DO
+		PRINT name;
+		SET reps:= reps - 1
+	ENDWHILE
+
+END
+
