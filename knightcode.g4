@@ -28,6 +28,61 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 grammar knightcode;
 
+/* ----- LEXER RULES ----- */
+
+ID
+    : LETTER (LETTER | [0-9])*
+    ;
+
+STRING 
+    : '"' (ESC|.)*? '"'
+    ;
+
+ASSIGN
+    : ':='
+    ;
+
+LETTER
+    : [a-zA-Z]
+    ;
+
+NUMBER
+    : [0-9]+
+    ;
+
+MUL
+    : '*'
+    ;
+
+DIV
+    : '/'
+    ;
+
+ADD
+    : ','
+    ;
+
+SUB
+    : '-'
+    ;
+
+GT 
+    : '>'
+    ;
+
+LT
+    : '<'
+    ;
+
+EQ
+    : '='
+    ;
+
+NEQ
+    : '<>'
+    ;
+
+
 file
     : 'PROGRAM' ID declare body 
     ;
@@ -93,56 +148,3 @@ loop
     : 'WHILE' comp expr 'DO' stat+ 'ENDWHILE'
     ;
 
-/* ----- LEXER RULES ----- */
-
-ID
-    : LETTER (LETTER | [0-9])*
-    ;
-
-STRING 
-    : '"' (ESC|.)*? '"'
-    ;
-
-ASSIGN
-    : ":="
-    ;
-
-LETTER
-    : [a-zA-Z]
-    ;
-
-NUMBER
-    : [0-9]+
-    ;
-
-MUL
-    : '*'
-    ;
-
-DIV
-    : '/'
-    ;
-
-ADD
-    : ','
-    ;
-
-SUB
-    : '-'
-    ;
-
-GT 
-    : '>'
-    ;
-
-LT
-    : '<'
-    ;
-
-EQ
-    : '='
-    ;
-
-NEQ
-    : '<>'
-    ;
