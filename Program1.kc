@@ -1,0 +1,16 @@
+PROGRAM Program 1
+
+DECLARE
+	INTEGER x
+	INTEGER y
+	INTEGER z
+
+BEGIN
+
+	SET x:= 10
+	SET y:= 12
+	SET z:= x + y
+	PRINT z
+
+END
+
