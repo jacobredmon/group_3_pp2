@@ -1,0 +1,21 @@
+PROGRAM Program3
+
+DECLARE
+	INTEGER x
+	INTEGER y
+	INTEGER z
+
+BEGIN
+	PRINT "Enter a number: "
+	READ x
+	PRINT "Enter another number: "
+	READ y
+	IF x > y THEN SET z:=10 * x
+	ELSE SET z:=12 * y
+	ENDIF
+	WHILE x > 0 DO
+		PRINT x
+		SET x:= x - 1
+	ENDWHILE
+
+END
