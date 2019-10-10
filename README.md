@@ -5,4 +5,4 @@ October 4th, 2019|Chad Critchelow|Thirty minutes| Copied over the four example K
 
 October 7th, 2019|Max Bickley|Thirty minutes|Resolved the issue with ESC that prevented the grammar file from running.
 
-October 10th, 2019|jacob Redmon|Five minutes|Added the proper build directories to knightcode.
+October 10th, 2019|Jacob Redmon|Five minutes|Added the proper build directories to knightcode.
