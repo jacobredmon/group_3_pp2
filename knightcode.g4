@@ -88,13 +88,17 @@ read
     ;
 
 decision
-    : 'IF' comp expr 'THEN' stat+ ('ELSE' stat+)* 'ENDIF'
+    : 'IF' expr comp expr 'THEN' stat+ ('ELSE' stat+)* 'ENDIF'
     ;
 
 loop
-    : 'WHILE' comp expr 'DO' stat+ 'ENDWHILE'
+    : 'WHILE' expr comp expr 'DO' stat+ 'ENDWHILE'
     ;
     
+fragment ESC
+    : '\\"' | '\\\\'
+    ;
+
     /* ----- LEXER RULES ----- */
 
 ID
@@ -148,6 +152,11 @@ EQ
 NEQ
     : '<>'
     ;
-ESC
-    : '\\' .
-    ;
+
+WS
+    : [ \t\n\r]+ -> skip
+    ; // remove whitespace
+
+SL_COMMENT
+    : '#' .*? '\n' -> skip
+    ; // remove comments
