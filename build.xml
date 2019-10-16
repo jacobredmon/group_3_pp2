@@ -1,61 +1,70 @@
 <?xml version = "1.0"?>
-<project name= "ArrayInit Language Project" default="info" basedir="/home/ubuntu/ArrayInit">
+<project name="build" default="usage" basedir="." >
 
 <componentdef classname="org.dogsplayingpoker.ant.PropertyHelpers.ColorPropertyEvaluator"
-              name="colorpropertyevaluator"
-              classpath="/usr/local/lib/ant-colorizor.jar" />
+name="colorpropertyevaluator"
+classpath="/usr/local/lib/ant-colorizor.jar" />
 <propertyhelper>
-  <colorpropertyevaluator />
+	<colorpropertyevaluator />
 </propertyhelper>
 
-
-	
-	<target name="info">
-
-		<echo>This ant script builds the ArrayInit.</echo>
-
-	</target>
-
 	<target name="usage">
-
-		<echo>${color: blue, bold}ant build-grammar: Consumes the g4 and builds .java files to parse the grammar${color:reset}</echo>
-		<echo>${color: purple, bold}ant compile-java: Compiles .java files${color:reset}</echo>
-		<echo>${color: red, bold}ant clean: Cleans and deletes all files/build directories${color:reset}</echo>
-
+		<echo>This script will enable you to convert a program from KnightCode to Java Source Code.</echo>
+		<echo>${color: red, bold}build-grammar - ant will parse the grammar files.${color:reset}</echo>
+		<echo>${color: yellow, bold}clean-grammar - ant will clean and delete all relevant files.${color:reset}</echo>
+		<echo>${color: green, bold}compile-grammar - ant will compile the java files.${color:reset}</echo>
+		<echo>${color: cyan, bold}compile-knightcode - ant will compile the java files but will not compile the parser files.${color:reset}</echo>
+		<echo>${color: blue, bold}run-compiler - ant will attempt to run the compiler.${color:reset}</echo>
 	</target>
-	
-	<target name="build-grammar" depends="clean">
-		<echo>Generating the .java files</echo>
-		
-		<java classname="org.antlr.v4.Tool">	
-			<arg value="-o" />
-			<arg value="build/src" />	
-			<arg value="ArrayInit.g4" />
 
+	<target name="build-grammar" depends="clean-grammar">
+		<echo>ant is currently building the java files.</echo>
+		<java classname="org.antlr.v4.Tool">
+			<arg value="-o" />
+			<arg value="." />
+			<arg value="knightcode.g4" />
+			
 			<classpath>
 				<pathelement location="/usr/local/lib/antlr-4.7.2-complete.jar" />
 			</classpath>
-
+		
 		</java>
-
 	</target>
 
-	<target name="compile-java">
-		<echo>Compiling the .java source files</echo>
-		<javac includeantruntime="false" classpath="/usr/local/lib/antlr-4.7.2-complete.jar" srcdir="./build/src" destdir="./build/bin" />
+	<target name="clean-grammar">
+		<echo>ant is currently deleting the files.</echo>
+		<delete>
+			<fileset dir="." includes="**.*~" />
+			<fileset dir="." includes="**/*.interp" />
+			<fileset dir="." includes="**/*.class" />
+			<fileset dir="." includes="**/*.tokens" />
+	 		<fileset dir="." includes="**/*.java" >
+				<exclude name="**/ClassyCompiler.java" />
+				<exclude name="**/Mylistener.java" />
+			</fileset>
+		</delete>
 	</target>
 
-	<target name="clean">
-		<echo>Cleaning the project directories</echo>
-	<delete>
-		<fileset dir="." includes="**.*~"/>
-		<fileset dir="." includes="**/*.class"/>
-		<fileset dir="." includes="**/*.java"/>
-		<fileset dir="." includes="**/*.interp"/>
-		<fileset dir="." includes="**/*.tokens"/>
-	</delete>
-
+	<target name="compile-knightcode">
+		<echo>ant is currently compiling the java files.</echo>
+		<javac includeantruntime="false" classpath="/usr/local/lib/antlr-4.7.2-complete.jar" srcdir="." destdir=".">
+				<exclude name="**/ClassyCompiler.java" />
+				<exclude name="**/Mylistener.java" />
+		</javac>
 	</target>
 
-
+	<target name="compile-grammar" depends="compile-knightcode">
+		<echo>ant is currently compiling the compilers.</echo>
+		<javac includeantruntime="false" classpath="/usr/local/lib/antlr-4.7.2-complete.jar" srcdir="." destdir=".">
+				<include name="**/ClassyCompiler.java" />
+				<include name="**/Mylistener.java" />
+		</javac>
+	</target>
+	<target name="run-compiler" depends="compile-grammar">
+		<echo>ant is running the compiler.</echo>
+		<java classname="ClassyCompiler">
+			<arg value="10" />
+			<arg value="This is ANT" />	
+		</java>
+	</target>
 </project>
