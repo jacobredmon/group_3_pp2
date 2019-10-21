@@ -23,7 +23,6 @@ public class Mylistener extends knightcodeBaseListener
 	public static String catcher;
 	public static String word = "";
 	public static int place = 0;
-	public static int mark = 0;
 	public static int numholder = 1;
 	@Override public void enterEveryRule(ParserRuleContext ctx) {//Overrides a method. This remains consistent whenever this code occurs.
 	placer = ctx.getText(); //Grabs the text from the parser and sorts it into given @Overrides below.
@@ -207,24 +206,12 @@ public class Mylistener extends knightcodeBaseListener
 	parsed.put(place, "}"); 
 	place = place + 1;
 	}
-	@Override public void exitOther(knightcodeParser.OtherContext ctx) {
-	//Closes the ELSE statement once the program reaches ENDIF.
-	//ENDIF is capable of closing both IF and ELSE.
-	//Lacks a condition because it is a closing method.
-	parsed.put(place, "}"); 
-	place = place + 1;
-	mark = 1;
-	}
 	@Override public void exitDecision(knightcodeParser.DecisionContext ctx) { 
 	//Closes the IF statement once the program reaches ENDIF.
 	//ENDIF is capable of closing both IF and ELSE.
 	//Lacks a condition because it is a closing method.
-	if (mark == 0)
-		{
-		parsed.put(place, "}"); 
-		place = place + 1;
-		}
-	mark = 0;
+	parsed.put(place, "}"); 
+	place = place + 1;
 	}
 	@Override public void exitBody(knightcodeParser.BodyContext ctx) {
 	//Closes loops once the program reaches the end of the body.
