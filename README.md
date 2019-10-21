@@ -19,6 +19,8 @@ October 14th, 2019|Max Bickley|3 hours|Worked towards resolving errors regarding
 
 October 15th, 2019|Max Bickley|3 hours|Resolved an error where the Mylistener cannot determine whether or not to read input as string or integers. Resolved the error where all ELSE statements would be parsed before statements that were intended to be contained within the ELSE.
 
-October 16th, 2019|Max Bickley|15 minutes|modified the ant file and submitted it to Github.
+October 16th, 2019|Max Bickley|15 minutes|Modified the ant file and submitted it to Github.
 
 October 20th, 2019|Max Bickley|3 hours|Finished the Mylistener, uploaded the Mylistener to Github, added terminators as a token in knightcode.g4, corrected the error where the ADD token had a ',' instead of a '+', and modified build.xml so that the compiler could store three arguments instead of only two.
+
+October 21st, 2019|Max Bickley|3 minutes|Corrected a minor error in knightcode.g4 regarding the IF and ELSE statements where ENDIF recurred.
