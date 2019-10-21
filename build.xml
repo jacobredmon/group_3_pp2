@@ -14,7 +14,7 @@ classpath="/usr/local/lib/ant-colorizor.jar" />
 		<echo>${color: yellow, bold}clean-grammar - ant will clean and delete all relevant files.${color:reset}</echo>
 		<echo>${color: green, bold}compile-grammar - ant will compile the java files.${color:reset}</echo>
 		<echo>${color: cyan, bold}compile-knightcode - ant will compile the java files but will not compile the parser files.${color:reset}</echo>
-		<echo>${color: blue, bold}run-compiler - ant will attempt to run the compiler.${color:reset}</echo>
+		<echo>${color: blue, bold}run-compiler - ant will attempt to run the compiler. Used for basic test runs.${color:reset}</echo>
 	</target>
 
 	<target name="build-grammar" depends="clean-grammar">
@@ -41,6 +41,7 @@ classpath="/usr/local/lib/ant-colorizor.jar" />
 	 		<fileset dir="." includes="**/*.java" >
 				<exclude name="**/ClassyCompiler.java" />
 				<exclude name="**/Mylistener.java" />
+				<exclude name="**/Errorlistener.java" />
 			</fileset>
 		</delete>
 	</target>
@@ -63,8 +64,9 @@ classpath="/usr/local/lib/ant-colorizor.jar" />
 	<target name="run-compiler" depends="compile-grammar">
 		<echo>ant is running the compiler.</echo>
 		<java classname="ClassyCompiler">
-			<arg value="10" />
-			<arg value="This is ANT" />	
+			<arg value="source" />
+			<arg value="Program1.kc" />
+			<arg value="Copy.java" />
 		</java>
 	</target>
 </project>
