@@ -57,6 +57,7 @@ stat
     | print
     | read
     | decision
+    | other
     | loop
     ;
 
@@ -70,6 +71,7 @@ expr
     | expr comp expr
     | NUMBER
     | ID
+    | Termin
     ;
 
 comp
@@ -88,7 +90,10 @@ read
     ;
 
 decision
-    : 'IF' expr comp expr 'THEN' stat+ ('ELSE' stat+)* 'ENDIF'
+    : 'IF' expr comp expr 'THEN' stat+ ('ENDIF')?
+    ;
+other
+    : ('ELSE' stat+)* 'ENDIF'
     ;
 
 loop
@@ -151,6 +156,10 @@ EQ
 
 NEQ
     : '<>'
+    ;
+    
+Termin
+    : ';' -> skip
     ;
 
 WS
