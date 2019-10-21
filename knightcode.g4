@@ -90,10 +90,10 @@ read
     ;
 
 decision
-    : 'IF' expr comp expr 'THEN' stat+ ('ENDIF')?
+    : 'IF' expr comp expr 'THEN' stat+ 'ENDIF'
     ;
 other
-    : ('ELSE' stat+)* 'ENDIF'
+    : ('ELSE' stat+)+ ('ENDIF')?
     ;
 
 loop
