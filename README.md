@@ -26,3 +26,5 @@ October 20th, 2019|Max Bickley|3 hours|Finished the Mylistener, uploaded the Myl
 October 21st, 2019|Max Bickley|8 minutes|Corrected a minor error in knightcode.g4 regarding the IF and ELSE statements where ENDIF recurred. Made a minor modification to Mylistener to remove an unnecessary method override.
 
 October 22nd, 2019|Max Bickley|25 minutes|Replaced the method of determining where to parse read input as an Int or String with a much more robust method in Mylistener.
+
+October 22nd, 2019|Jacob Redmon|1 hour|Researched methods of error handling and decided on a method to use in the project.
