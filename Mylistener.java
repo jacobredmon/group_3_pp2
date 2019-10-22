@@ -16,12 +16,16 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 public class Mylistener extends knightcodeBaseListener
  {	
 	public static HashMap<Integer, String> parsed = new HashMap<Integer, String>();
+	public static HashMap<String, String> variable1 = new HashMap<String, String>();
+	public static HashMap<String, String> variable2 = new HashMap<String, String>();
 	ClassyCompiler Classy = new ClassyCompiler(); //Allows the user's chosen file name to be imported.
 	HashMap<Integer, String> Userchoice = Classy.sender(); // Actually imports the file name that the user chose.
 	public static String conversion = "";
 	public static String placer = "";
 	public static String catcher;
-	public static String word = "";
+	public static String word1 = "";
+	public static String word2 = "";
+	public static String word3 = "";
 	public static int place = 0;
 	public static int numholder = 1;
 	@Override public void enterEveryRule(ParserRuleContext ctx) {//Overrides a method. This remains consistent whenever this code occurs.
@@ -47,7 +51,6 @@ public class Mylistener extends knightcodeBaseListener
 			catcher = catcher.replace(".java", ""); //Removes .java from the text inside the file
 			parsed.put(place, "public class " + catcher + "");
 			place = place + 1;
-
 			parsed.put(place, "{");//Adds the opening brackets.
 			place = place + 1;
                         }
@@ -59,6 +62,14 @@ public class Mylistener extends knightcodeBaseListener
                         {
 			conversion = match2.group();
 			conversion = conversion.replace("INTEGER", "");
+			Pattern pattern9 = Pattern.compile("[A-Z]?[a-z]*[0-9]*"); //matches integers found. Note that they can be given values here.
+			Matcher match9 = pattern9.matcher(conversion);
+			while (match9.find())
+				{
+				word3 = match9.group();
+				variable1.put(word3, " = Integer.parseInt(");
+				variable2.put(word3, "2);");
+				}
 			conversion = conversion.replace(":=", " = ");
 			conversion = "public static int " + conversion + ";";
 			parsed.put(place, conversion);
@@ -70,6 +81,16 @@ public class Mylistener extends knightcodeBaseListener
                         {
 			conversion = match3.group();
 			conversion = conversion.replace("STRING", "");
+			Pattern pattern10 = Pattern.compile("[A-Z]?[a-z]*[0-9]*"); //matches integers found. Note that they can be given values here.
+			Matcher match10 = pattern10.matcher(conversion);
+			while (match10.find())
+				{
+				word3 = match10.group();
+				variable1.put(word3, " = ");
+				variable2.put(word3, "2;");
+				}
+
+			conversion = conversion.replace(":=", " = ");
 			conversion = "public static String " + conversion + ";";
 			parsed.put(place, conversion);
 			place = place + 1;
@@ -151,20 +172,15 @@ public class Mylistener extends knightcodeBaseListener
 			parsed.put(place, "Scanner scan" + numholder + " = new Scanner(System.in);"); 
 			place = place + 1;
 			parsed.put(place, "String " + conversion + "2 = scan" + numholder + ".nextLine();"); 
+	
+			word1 = (String) variable1.get(conversion);
+			word2 = (String) variable2.get(conversion);
+
 			place = place + 1;
 			numholder = numholder + 1;
 			//Scans the input prompt for key phrases that indicate that the user is going to input a number. If any phrases match, the input will be an integer.
-			if (word.contains("number:")||word.contains("repetitions:")||word.contains("How many")||word.contains("How much")||word.contains("count")||word.contains("amount"))
-			{
-			parsed.put(place, "" + conversion + " = Integer.parseInt(" + conversion + "2);"); 
+			parsed.put(place, "" + conversion + "" + word1 + "" + conversion + "" + word2 + ""); 
 			place = place + 1;
-			}
-			//If there is no input prompt or if none of the above phrases are found, the input will be registered as String.
-			else
-			{
-			parsed.put(place, "" + conversion + " = " + conversion + "2;"); 
-			place = place + 1;
-			}
 			}
 	}
 	@Override public void enterPrint(knightcodeParser.PrintContext ctx) { //Stores the System.out.Println function for later use.
@@ -179,7 +195,6 @@ public class Mylistener extends knightcodeBaseListener
 			parsed.put(place, conversion);
 			place = place + 1;
 			//Stores the input into the variable word in order to perform the test within enterRead above.
-			word = match5.group();
 			}
 	}
 	@Override public void enterSetvar(knightcodeParser.SetvarContext ctx) { //Assigns values to variables.
