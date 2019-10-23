@@ -205,7 +205,7 @@ public class Mylistener extends knightcodeBaseListener {
 	
 	//Handles any situation where a program needs to read user input.
 	@Override public void enterRead(knightcodeParser.ReadContext ctx) { 
-		Pattern pattern6 = Pattern.compile("(PRINT.*)?READ\\S?[A-Z]?[a-z]+\\S?");
+		Pattern pattern6 = Pattern.compile("READ\\S?[A-Z]?[a-z]+\\S?");
         Matcher match6 = pattern6.matcher(placer);
 		
 		while (match6.find())
@@ -244,8 +244,8 @@ public class Mylistener extends knightcodeBaseListener {
 	}// end enterPrint override
 	
 	//Assigns values to variables.
-	@Override public void enterSetvar(knightcodeParser.SetvarContext ctx) { 
-		Pattern pattern4 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=((\\+||\\-||\\/||\\*)\\S?[a-z0-9]+)*"); //This pattern supports basic arithmetic within the assignment.
+	@Override public void enterSetvar(knightcodeParser.SetvarContext ctx) {
+	Pattern pattern4 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=(\\W.+\\W)||((\\+||\\-||\\/||\\*)(\\S?[a-z0-9]+))*"); //This pattern supports basic arithmetic within the assignment.
         Matcher match4 = pattern4.matcher(placer);
 		
 		while (match4.find())
