@@ -1,10 +1,10 @@
-PROGRAM Program 5
-
-DECLARE
-	STRING helloworld
-	
-BEGIN
-	SET helloworld:= "Hello World" 
-	PRINT helloworld
-
+PROGRAM Program5 #comments galore
+#comment on a blank line, ooooh
+DECLARE #comment test
+	STRING helloWorld #comment on a declaration, woowwwww
+	#comment on a blank line, ooooh
+BEGIN #comment on that begin statement baby
+	SET helloWorld:= "Hello World" ###########
+	PRINT helloworld #whabalamamamam
+	#hey dr k
 END
