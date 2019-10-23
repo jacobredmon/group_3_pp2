@@ -13,7 +13,7 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class ClassyCompiler{
 
-        public static Userchoice;
+        public static String Userchoice;
         public static Mylistener Mylistener = new Mylistener();
         public static HashMap<Integer, String> parsed = Mylistener.sender();
         public static Integer Part = 0;
