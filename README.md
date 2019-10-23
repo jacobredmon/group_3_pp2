@@ -44,3 +44,5 @@ October 22nd, 2019 | Max Bickley | 25 minutes | Replaced the method of determini
 October 22nd, 2019 | Jacob Redmon | 1 hour | Researched methods of error handling and decided on a method to use in the project.
 
 October 23rd, 2019 | Jacob Redmon | 1.5 hours | Cleaned and added the compiler, Mylistener and ErrorListener, updated README with proper formatting and documentation.
+
+October 23rd, 2019 | Jacob Redmon | 1.5 hours | Created 4 knightcode files, made Errorlistener simpler
