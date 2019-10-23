@@ -4,7 +4,7 @@ DECLARE #comment test
 	STRING helloworld #comment on a declaration, woowwwww
 	#comment on a blank line, ooooh
 BEGIN #comment on that begin statement baby
-	SET helloworld:= "Hello World" ###########
+	SET helloworld:= "Hello world" ###########
 	PRINT helloworld #whabalamamamam
 	#hey dr k
 END
