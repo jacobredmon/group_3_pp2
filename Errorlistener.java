@@ -19,7 +19,7 @@ public class Errorlistener extends BaseErrorListener{
 
 	public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e){
 
-		System.out.println("An error was encountered at line " + line + ", col " + charPositionInLine);
+		System.out.println("An error was encountered at row " + line + ", col " + charPositionInLine);
 		System.exit(1);
 		
 	}// end method
