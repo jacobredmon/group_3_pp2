@@ -172,7 +172,7 @@ public class Mylistener extends knightcodeBaseListener {
 			conversion = conversion.replace("THEN", ")");
 			conversion = conversion.replace(">", " > ");
 			conversion = conversion.replace("<", " < ");
-			conversion = conversion.replace("=", " = ");
+			conversion = conversion.replace("=", " == ");
 			conversion = conversion.replace("<>", " != ");
 			conversion = conversion.replace(">=", " >= ");
 			conversion = conversion.replace("<=", " <= ");
