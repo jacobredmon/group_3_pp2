@@ -9,7 +9,7 @@ BEGIN
     
     WHILE x > 0 DO
        PRINT x
-       IF x > 10
+       IF x > 10 THEN
          PRINT "Wow, x is real big"
        ENDIF
        SET x:=x-1
