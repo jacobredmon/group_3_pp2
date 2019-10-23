@@ -1,0 +1,18 @@
+PROGRAM Program8
+
+DECLARE
+    INTEGER x:=5
+    INTEGER y:=10
+    INTEGER z:=15
+    INTEGER num
+    INTEGER result
+    
+BEGIN
+    PRINT "How many times do you want to add 5 and 10"
+    READ num
+    
+    SET result:=(5+10)*num
+    PRINT "Your result is: "
+    PRINT result        
+
+END
