@@ -245,7 +245,7 @@ public class Mylistener extends knightcodeBaseListener {
 	
 	//Assigns values to variables.
 	@Override public void enterSetvar(knightcodeParser.SetvarContext ctx) {
-	Pattern pattern4 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=(\\W.+\\W)||((\\+||\\-||\\/||\\*)(\\S?[a-z0-9]+))*"); //This pattern supports basic arithmetic within the assignment.
+	Pattern pattern4 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=(((\\+||\\-||\\/||\\*)(\\S?[a-z0-9]+))*||\\W.+\\W)"); //This pattern supports basic arithmetic within the assignment.
         Matcher match4 = pattern4.matcher(placer);
 		
 		while (match4.find())
