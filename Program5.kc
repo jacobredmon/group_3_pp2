@@ -1,0 +1,10 @@
+PROGRAM Program 5
+
+DECLARE
+	STRING helloWorld
+	
+BEGIN
+	SET helloWorld:= "Hello World" 
+	PRINT helloWorld
+
+END
