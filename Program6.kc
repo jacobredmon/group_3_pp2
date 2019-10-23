@@ -1,0 +1,31 @@
+PROGRAM Program2
+
+DECLARE
+        INTEGER answer1
+        INTEGER answer2
+        INTEGER answer3
+        INTEGER correct
+
+BEGIN        
+        PRINT "How long is the word blue?"
+        READ answer1
+        IF answer1 = 4 
+          THEN SET correct:=1 + correct 
+        ENDIF
+        
+        PRINT "What is the answer to life, the universe, and everything?"
+        READ answer2
+        IF answer2 = 42 
+          THEN SET correct:=1 + correct 
+        ENDIF
+        
+        PRINT "What is average air speed velocity of an unladen swallow?"
+        READ answer3
+        IF answer3 = 10 
+          THEN SET correct:=1 + correct 
+        ENDIF
+
+        PRINT "Number correct: "
+        PRINT correct
+
+END
