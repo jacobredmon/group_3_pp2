@@ -1,0 +1,18 @@
+PROGRAM Program7
+
+DECLARE
+    INTEGER x
+
+BEGIN
+    PRINT "Enter a value for x: "
+    READ x
+    
+    WHILE x > 0 DO
+       PRINT x
+       IF x > 10
+         PRINT "Wow, x is real big"
+       ENDIF
+       SET x:=x-1
+    ENDWHILE
+
+END
