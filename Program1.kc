@@ -1,4 +1,4 @@
-PROGRAM Program 1
+PROGRAM Program1
 
 DECLARE
 	INTEGER x
