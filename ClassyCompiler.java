@@ -74,7 +74,7 @@ public class ClassyCompiler{
                         System.out.println("You were supposed to enter: java, ClassyCompiler, source, the file you want to read, and the file you want to create.");
                 }
         }
-        public string sender(){
+        public String sender(){
                 return Userchoice;
         }
 }
