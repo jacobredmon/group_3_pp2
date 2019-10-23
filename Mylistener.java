@@ -76,7 +76,7 @@ public class Mylistener extends knightcodeBaseListener {
 	
 	//Declares integers and String.
 	@Override public void enterDeclare(knightcodeParser.DeclareContext ctx) { 
-		Pattern pattern2 = Pattern.compile("INTEGER[A-Z]?[a-z]*[0-9]*(:=[0-9])?"); //matches integers found. Note that they can be given values here.
+		Pattern pattern2 = Pattern.compile("INTEGER[A-Z]?[a-z]*[0-9]*(:=[0-9]+)?"); //matches integers found. Note that they can be given values here.
 		Matcher match2 = pattern2.matcher(placer);
 		
 		while (match2.find())
