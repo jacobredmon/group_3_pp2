@@ -46,3 +46,5 @@ October 22nd, 2019 | Jacob Redmon | 1 hour | Researched methods of error handlin
 October 23rd, 2019 | Jacob Redmon | 1.5 hours | Cleaned and added the compiler, Mylistener and ErrorListener, updated README with proper formatting and documentation.
 
 October 23rd, 2019 | Jacob Redmon | 1.5 hours | Created 4 knightcode files, made Errorlistener simpler
+
+October 23rd, 2019 | Max Bickley & Ben Torrance | 4 hours | Created the ClassyCompiler.java file with comments and tested the compiler on the 8 knightcode programs. All test files should now translate and compile.
