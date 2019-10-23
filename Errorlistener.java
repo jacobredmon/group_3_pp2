@@ -21,8 +21,9 @@ public class Errorlistener extends BaseErrorListener{
 
 		List<String> stack = ((Parser) recognizer).getRuleInvocationStack();
 		Collections.reverse(stack);
-		System.err.println("rule stack "+stack);
-		System.err.println("Line " + line + ": " + charPositionInLine+" at" + offendingSymbol + ": " + msg);
+		System.out.println("An error was encountered at line " + line + ", col " + charPositionInLine);
+		//System.err.println("rule stack "+stack);
+		//System.err.println("Line " + line + ": " + charPositionInLine+" at" + offendingSymbol + ": " + msg);
 		System.exit(1);
 		
 	}// end method
