@@ -30,8 +30,8 @@ public class Mylistener extends knightcodeBaseListener {
 	public static HashMap<Integer, String> parsed = new HashMap<Integer, String>();
 	public static HashMap<String, String> variable1 = new HashMap<String, String>();
 	public static HashMap<String, String> variable2 = new HashMap<String, String>();
-	ClassyCompiler Classy = new ClassyCompiler(); // Allows the user's chosen file name to be imported.
-	public static String Userchoice = Classy.sender(); // Actually imports the file name that the user chose.	
+	ClassyCompiler Classy = new ClassyCompiler(); //Allows the user's chosen file name to be imported.
+	HashMap<Integer, String> Userchoice = Classy.sender(); // Actually imports the file name that the user chose.	
 	public static String conversion = "";
 	public static String placer = "";
 	public static String catcher;
@@ -65,7 +65,7 @@ public class Mylistener extends knightcodeBaseListener {
     	{
 			//The body of the while loop. Bodies, in general, replace unwanted code with the desired code.
 			//This section manages the file name the opening brackets.
-			catcher = Userchoice;
+			catcher = (String) Userchoice.get(2);
 			catcher = catcher.replace(".java", ""); //Removes .java from the text inside the file
 			parsed.put(place, "public class " + catcher + "");
 			place = place + 1;
