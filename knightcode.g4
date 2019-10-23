@@ -39,7 +39,7 @@ declare
     ;
 
 variable
-    : type ID
+    : type ID (ASSIGN (expr | STRING))?
     ;
 
 type 
