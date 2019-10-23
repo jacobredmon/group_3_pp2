@@ -1,3 +1,15 @@
+/**
+* This is the Error listener for the compiler for theKnightCode programming language.
+* @author Max Bickley
+* @author Chad Critchelow
+* @author Jacob Redmon
+* @author Ben Torrance
+* @version 1.0
+* Programming Project Two
+* CS322 - Compiler Construction
+* Fall 2019
+**/
+
 import org.antlr.v4.runtime.*;
 //import org.antlr.v4.runtime.misc.Nullable;
 
@@ -10,11 +22,9 @@ public class ErrorListener extends BaseErrorListener{
 		List<String> stack = ((Parser) recognizer).getRuleInvocationStack();
 		Collections.reverse(stack);
 		System.err.println("rule stack "+stack);
-		System.err.println("line "+line+":"+charPositionInLine+" at" + offendingSymbol + ": "+msg);
-		//System.err.println(msg);
-		//System.err.println("SON - YOU DONE MESSED UP!");
+		System.err.println("Line " + line + ": " + charPositionInLine+" at" + offendingSymbol + ": " + msg);
 		System.exit(1);
-	}
-
-
-}
+		
+	}// end method
+	
+}// end Error Listener
