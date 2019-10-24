@@ -10,12 +10,12 @@ This project does not currently support bytecode but it will be expanded to supp
 ### How To Compile the Compiler with ANT:
 code examples of how to compile the compiler with ANT;
 
-     [echo] This script will enable you to convert a program from KnightCode to Java Source Code.
-     [echo] build-grammar - ant will parse the grammar files.
-     [echo] clean-grammar - ant will clean and delete all relevant files.
-     [echo] compile-grammar - ant will compile the java files.
-     [echo] compile-knightcode - ant will compile the java files but will not compile the parser files.
-     [echo] run-compiler - ant will attempt to run the compiler. Used for basic test runs.
+     This script will enable you to convert a program from KnightCode to Java Source Code.
+     build-grammar - ant will parse the grammar files.
+     clean-grammar - ant will clean and delete all relevant files.
+     compile-grammar - ant will compile the java files.
+     compile-knightcode - ant will compile the java files but will not compile the parser files.
+     run-compiler - ant will attempt to run the compiler. Used for basic test runs.
 
 Assuming that you imported build.xml, knightcode.g4, ClassyCompiler.java, Mylistener.java, and Errorlistener.java, everything can be run by following the commands listed above. However, there are five things of note;
 1# build-grammar runs clean-grammar
