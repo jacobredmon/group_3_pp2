@@ -13,7 +13,7 @@ BEGIN
           THEN SET correct:=1 + correct 
         ENDIF
         
-        PRINT "What is the answer to life the universe and everything?"
+        PRINT "What is the answer to life, the universe, and everything?"
         READ answer2
         IF answer2 = 42 
           THEN SET correct:=1 + correct 
