@@ -229,7 +229,7 @@ public class Mylistener extends knightcodeBaseListener {
 	//Stores the System.out.Println function for later use.
 	//Note, that this function always uses System.out.println since there is no way of distinguishing it from System.out.print in knightcode.
 	@Override public void enterPrint(knightcodeParser.PrintContext ctx) { 
-   		Pattern pattern5 = Pattern.compile("PRINT\\S{0,2}(([a-z]||[0-9])+\\s?)+\\S?\\s*\\S?");
+   		Pattern pattern5 = Pattern.compile("PRINT\\S{0,2}(([a-z],?s?||[0-9],?s?)+\\s?)+\\S?\\s*\\S?");
         Matcher match5 = pattern5.matcher(placer);
 		
 		while (match5.find()) //Stores the input into the variable word in order to perform the test within enterRead above.
