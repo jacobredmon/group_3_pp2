@@ -1,3 +1,15 @@
+/**
+* This is the Mylistener for the compiler for the KnightCode programming language.
+* @author Max Bickley
+* @author Chad Critchelow
+* @author Jacob Redmon
+* @author Ben Torrance
+* @version 1.0
+* Programming Project Two
+* CS322 - Compiler Construction
+* Fall 2019
+**/
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
