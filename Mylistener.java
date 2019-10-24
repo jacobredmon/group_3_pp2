@@ -184,9 +184,8 @@ public class Mylistener extends knightcodeBaseListener {
 	}// end enterDecision override
 	
 	@Override public void enterOther(knightcodeParser.OtherContext ctx) { //Manages the ELSE in any IF statements that have an ELSE.
-		Pattern pattern11 = Pattern.compile("ELSE(IF[A-Z]?([a-z]||[0-9])+(>||<||=||<>||>=||<=)\\S+THEN)?");
+		Pattern pattern11 = Pattern.compile("ELSE");
 		Matcher match11 = pattern11.matcher(placer);	
-		
 		while (match11.find())
              {
 			//Closes the previous IF.
@@ -245,9 +244,8 @@ public class Mylistener extends knightcodeBaseListener {
 	
 	//Assigns values to variables.
 	@Override public void enterSetvar(knightcodeParser.SetvarContext ctx) {
-	Pattern pattern4 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=(((\\+||\\-||\\/||\\*)(\\S?[a-z0-9]+))*||\\W.+\\W)"); //This pattern supports basic arithmetic within the assignment.
+	Pattern pattern4 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=((\\+||\\-||\\/||\\*)(\\S?[a-z0-9]+))+"); //This pattern supports basic arithmetic within the assignment.
         Matcher match4 = pattern4.matcher(placer);
-		
 		while (match4.find())
         {
 			conversion = match4.group();
@@ -261,7 +259,19 @@ public class Mylistener extends knightcodeBaseListener {
 			conversion = "" + conversion + ";";
 			parsed.put(place, conversion); 
 			place = place + 1;
-			}// end while
+	}// end while
+	Pattern pattern12 = Pattern.compile("SET\\S?[a-z]*[0-9]*:=\\W.+\\W{1,2}"); //This pattern supports basic sentence structures within the assignment.
+        Matcher match12 = pattern12.matcher(placer);
+		while (match12.find())
+        {
+			conversion = match12.group();
+			//Replaces the unwanted text with the target text.
+			conversion = conversion.replace("SET", "");
+			conversion = conversion.replace(":=", " = ");
+			conversion = "" + conversion + ";";
+			parsed.put(place, conversion); 
+			place = place + 1;
+	}// end while
 	}// end enterSetvar
 	
 	//Closes loops once the program reaches ENDWHILE.
