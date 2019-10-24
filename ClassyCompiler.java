@@ -1,5 +1,5 @@
 /**
-* This is the Mylistener for the compiler for the KnightCode programming language.
+* This is the compiler section of the compiler for the KnightCode programming language.
 * @author Max Bickley
 * @author Chad Critchelow
 * @author Jacob Redmon
