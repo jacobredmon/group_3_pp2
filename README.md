@@ -1,7 +1,7 @@
 # group_3_pp2 README 
 
 ### Summary:
-The program was created by Max Bickley, Jacob Redmnon, Chad Critchelow, and Ben Torrence.
+The program was created by Max Bickley, Jacob Redmon, Chad Critchelow, and Ben Torrance.
 
 This project is a simple Compiler where the ANT file takes a .g4 file, and constructs both parsers and lexers for the java compiler file. Furthermore, the ANT file is capable of building and compiling all the necessary files and deleting all files except for the java files that pertain to the compiler itself, ClassyCompiler, Mylistener, and Errorlistener. For the compiler itself, it reads three arguments; source, the name of the file to read, and the name of the file to write, runs through the lexers, the parser, and Mylistener, creates a new file, and writes the results derived from the Mylistener in the new file. However, in the event that an error occurs, the program will print the row and column where the error occured and halt the program's execution.
 
@@ -18,18 +18,18 @@ code examples of how to compile the compiler with ANT;
      run-compiler - ant will attempt to run the compiler. Used for basic test runs.
 
 Assuming that you imported build.xml, knightcode.g4, ClassyCompiler.java, Mylistener.java, and Errorlistener.java, everything can be run by following the commands listed above. However, there are five things of note;
-1# build-grammar runs clean-grammar
-2# compile-grammar, compile-knightcode, and run-compiler require build-grammar to be run prior to their use.
-3# compile-grammar runs compile-knightcode automatically.
-4# run-compiler runs compile-grammar automatically.
-5# run-compiler only tests the first program. Other programs must be manually entered.
+#1 build-grammar runs clean-grammar
+#2 compile-grammar, compile-knightcode, and run-compiler require build-grammar to be run prior to their use.
+#3 compile-grammar runs compile-knightcode automatically.
+#4 run-compiler runs compile-grammar automatically.
+#5 run-compiler only tests the first program. Other programs must be manually entered.
 
 ### How To Run the Compiler to Compile a .kc File:
-Once you have run the compile-grammar function, all you need to do is type "java ClassyCompiler source" before typing the name of the program to run and the name of the program to create. Keep in mind however, that it is crucial that you specify the file types after entering each file name or else the program will not run currectly. Here is an example of a successful program;
+Once you have run the compile-grammar function, all you need to do is type "java ClassyCompiler source" before typing the name of the program to run and the name of the program to create. Keep in mind however, that it is crucial that you specify the file types after entering each file name or else the program will not run correctly. Here is an example of a successful program;
 
       java ClassyCompiler source Program1.kc Copy.java
       
-Unfortunately, the compiler does not currently support byte code. So, the new file will need to be compiled independantly.
+Unfortunately, the compiler does not currently support byte code. So, the new file will need to be compiled independently.
 
       javac Copy.java
       
@@ -75,5 +75,6 @@ October 23rd, 2019 | Jacob Redmon | 1.5 hours | Created 4 knightcode files, made
 
 October 23rd, 2019 | Max Bickley & Ben Torrance | 4 hours | Created the ClassyCompiler.java file with comments and tested the compiler on the 8 knightcode programs. All test files should now translate and compile.
 
-October 24th, 2019| Max Bickley | 1 hour | Fixed a bunch of minor errors and improved the README file.
+October 24th, 2019 | Max Bickley | 1 hour | Fixed a bunch of minor errors and improved the README file.
 
+October 24th, 2019 | Chad Critchelow and Jacob Redmon | 1 hour | Reviewed the code, tested the programs on the server, and spell-checked the README.
