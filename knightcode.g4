@@ -90,14 +90,14 @@ read
     ;
 
 decision
-    : 'IF' expr comp expr 'THEN' stat+ 'ENDIF'
+    : 'IF' expr comp (comp)? expr 'THEN' stat+ 'ENDIF'
     ;
 other
     : ('ELSE' stat+)+ ('ENDIF')?
     ;
 
 loop
-    : 'WHILE' expr comp expr 'DO' stat+ 'ENDWHILE'
+    : 'WHILE' expr comp (comp)? expr 'DO' stat+ 'ENDWHILE'
     ;
     
 fragment ESC
