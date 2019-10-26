@@ -134,10 +134,10 @@ public class Mylistener extends knightcodeBaseListener {
 	
 	//Handles the opening of each loop including the opening bracket at the end.
 	@Override public void enterLoop(knightcodeParser.LoopContext ctx) { 
-		Pattern pattern7 = Pattern.compile("WHILE\\S+(>||<||=||<>||>=||<=)\\S+DO");
+		Pattern pattern7 = Pattern.compile("WHILE(\\S||\\S?([a-z]+||[0-9]+))(>||<||=||<>||>=||<=)(\\S||\\S?([a-z]+||[0-9]+))DO");
 		Matcher match7 = pattern7.matcher(placer);
 		
-		while (match7.find())
+		if (match7.find())
 		{
 			conversion = match7.group();
 			conversion = conversion.replace("WHILE", "while (");
@@ -152,6 +152,9 @@ public class Mylistener extends knightcodeBaseListener {
 			conversion = conversion.replace("<>", " != ");
 			conversion = conversion.replace(">=", " >= ");
 			conversion = conversion.replace("<=", " <= ");
+			conversion = conversion.replace("!  =", "!=");
+			conversion = conversion.replace(">  =", ">=");
+			conversion = conversion.replace("<  =", "<=");
 			parsed.put(place, conversion); 
 			place = place + 1;
 			parsed.put(place, "{"); 
@@ -161,10 +164,10 @@ public class Mylistener extends knightcodeBaseListener {
 	
 	//Handles the IF THEN statement. Due to sorting difficulties, it was separated from the ELSE method.
 	@Override public void enterDecision(knightcodeParser.DecisionContext ctx) { 
-		Pattern pattern8 = Pattern.compile("IF[A-Z]?([a-z]||[0-9])+(>||<||=||<>||>=||<=)\\S+THEN");
+		Pattern pattern8 = Pattern.compile("IF[A-Z]?([a-z]||[0-9])+(>||<||=||<>||>=||<=)(\\S||\\S?([a-z]+||[0-9]+))THEN");
 		Matcher match8 = pattern8.matcher(placer);
 		
-		while (match8.find())
+		if (match8.find())
         {
 			conversion = match8.group();
 			//Replaces unwanted code with wanted code and loads it into parsed.
@@ -176,6 +179,9 @@ public class Mylistener extends knightcodeBaseListener {
 			conversion = conversion.replace("<>", " != ");
 			conversion = conversion.replace(">=", " >= ");
 			conversion = conversion.replace("<=", " <= ");
+			conversion = conversion.replace("!  =", "!=");
+			conversion = conversion.replace(">  =", ">=");
+			conversion = conversion.replace("<  =", "<=");
 			parsed.put(place, conversion); 
 			place = place + 1;
 			parsed.put(place, "{"); 
