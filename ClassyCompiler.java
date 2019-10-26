@@ -46,7 +46,7 @@ public class ClassyCompiler
 
                 	String line = null;
 			//Checks the filename argument to make sure it is not null before proceeding 
-			if (args[1] != null)
+			if (args[0].equals("source"))
                 	{
 			
 			//Creates a File object containing the filepath to our input file.
@@ -111,7 +111,7 @@ public class ClassyCompiler
 		//Sends error if the input filename was incorrect.
 		else 
 		{
-		System.out.println("You were supposed to enter: java, ClassyCompiler, source, the file you want to read, and the file you want to create.");
+		System.out.println("We do not currently support the conversion of source code to byte code.");
 		}
 	}
 	//Method to send the hashmap of arguments to the Mylistener
