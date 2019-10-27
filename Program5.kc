@@ -7,4 +7,4 @@ BEGIN #comment on the begin statement. We all know what this does.
 	SET helloworld:= "Hello World" ###########
 	PRINT helloworld #And finally, the program fulfills its purpose.
 	#Hey dr k.
-END #Finsihes the program.
+END
