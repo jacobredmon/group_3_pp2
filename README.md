@@ -80,3 +80,5 @@ October 24th, 2019 | Max Bickley | 1 hour | Fixed a bunch of minor errors and im
 October 24th, 2019 | Chad Critchelow and Jacob Redmon | 1 hour | Reviewed the code, tested the programs on the server, and spell-checked the README.
 
 October 26th, 2019 | Max Bickley | 10 minutes | Altered the initial condition in ClassyCompiler to distinguish source from byte code, resolved the issue with nested if statements and loops, and enabled greater than or equal, less than or equal, and not equal operators.
+
+October 27th, 2019 | Max Bickley, Chad Critchelow, and Jacob Redmon | 1 hour | Reviewed and submitted final version of the project. 
